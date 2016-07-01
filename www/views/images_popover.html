@@ -1,0 +1,7 @@
+<ion-popover-view class="images-popover">
+    <ion-content>
+        <p>Select an Image</p>
+        <div class="line-divider"></div>
+        <div class="image-container" ng-repeat="img in images" ng-style="{background:'url(img/' + img + ')'}" ng-click="drawImageOnCanvas($index)"></div>
+    </ion-content>
+</ion-popover-view>

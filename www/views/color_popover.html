@@ -1,0 +1,7 @@
+<ion-popover-view class="color-popover">
+    <ion-content>
+        <p>Color picker</p>
+        <div class="line-divider"></div>
+        <div class="color-circle" ng-repeat="c in colors" ng-style="{'background-color': c }" ng-class="c == color ? 'selected-color' : ''" ng-click="pickColor($index)"></div>
+    </ion-content>
+</ion-popover-view>

@@ -1,0 +1,25 @@
+<ion-popover-view class="pencil-popover">
+    <ion-content>
+        <p class="popover-title">Drawing tool</p>
+        <div class="line-divider"></div>
+
+        <div class="sample-pencil-container">
+            <img id="grid" src="img/grid.png" style="display: none">
+            <canvas id="thickness-canvas"></canvas>
+        </div>
+
+        <div class="row">
+            <div class="col-50 text-left">
+                <p>Thickness</p>
+            </div>
+            <div class="col-50 text-right">
+                <p>{{lineWidth}}</p>
+            </div>
+        </div>
+        <div class="item range">
+            <input type="range" name="thickness" min="0" max="80" ng-model="lineWidth" ng-change="repaintLine(lineWidth)">
+        </div>
+
+        <button class="button button-calm" ng-click="applyPencil(lineWidth)"> &nbsp;&nbsp; Apply &nbsp;&nbsp; </button>
+    </ion-content>
+</ion-popover-view>

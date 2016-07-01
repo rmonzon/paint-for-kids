@@ -1,1 +1,145 @@
 /* Empty. Add your own CSS if you like */
+
+ion-header-bar {
+    border-color: #5ba5c7!important;
+    background: #5ba5c7 linear-gradient(0deg, #5ba5c7, #5ba5c7 50%, transparent 50%)!important;
+}
+
+.main .scroll {
+    transform: none!important;
+}
+
+.scroll {
+    height: 99.7%;
+    padding: 10px;
+}
+
+ion-pane {
+    background-color: rgba(173, 216, 230, 0.5)!important;
+}
+
+canvas {
+    width: 100%;
+    height: 100%;
+    background: white;
+}
+
+.buttons-bar {
+    position: absolute;
+    right: 0;
+}
+
+.title {
+    left: 0!important;
+    text-align: left!important;
+}
+
+.color-circle {
+    width: 54px;
+    height: 54px;
+    float: left;
+    border-radius: 50%;
+    margin: 7px;
+    border: 1px solid lightgray;
+}
+
+.ion-android-color-palette {
+    position: absolute;
+    left: 50%;
+    margin-left: -23px;
+}
+
+.color-popover {
+    background-color: whitesmoke!important;
+    height: 345px!important;
+}
+
+.color-popover .popover-arrow:after {
+    background-color: whitesmoke!important;
+}
+
+.color-popover p {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: bold;
+    color: #8a8a8a;
+    margin-bottom: 15px;
+}
+
+.pencil-popover .item {
+    border-color: transparent;
+}
+
+.pencil-popover .row {
+    padding: 5px 20px 0;
+}
+
+.pencil-popover .row p {
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #8a8a8a;
+}
+
+.pencil-popover {
+    height: 320px;
+}
+
+.popover-title {
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #8a8a8a;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.line-divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(138, 138, 138, 0.2);
+    margin-bottom: 10px;
+}
+
+.pencil-popover .button {
+    min-height: 40px;
+    line-height: 35px;
+    position: absolute;
+    left: 50%;
+    margin-left: -46px;
+    margin-bottom: 3px;
+}
+
+.sample-pencil-container {
+    width: 320px;
+    height: 100px;
+    border: 2px inset;
+    margin: 10px;
+    border-radius: 3px;
+}
+
+.selected-color {
+    border: 5px solid lime!important;
+}
+
+.image-container {
+    width: 159px;
+    height: 80px;
+    border: 1px solid lightgray;
+    margin: 5px;
+    float: left;
+    background-repeat: no-repeat!important;
+    background-size: cover!important;
+    background-position-x: 50%!important;
+    background-position-y: 50%!important;
+}
+
+.images-popover p {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: bold;
+    color: #8a8a8a;
+    margin-bottom: 15px;
+}
