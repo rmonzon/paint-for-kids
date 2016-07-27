@@ -1,8 +1,11 @@
 /* Empty. Add your own CSS if you like */
+body, h1 {
+    font-family: Nunito!important;
+}
 
 ion-header-bar {
-    border-color: #5ba5c7!important;
-    background: #5ba5c7 linear-gradient(0deg, #5ba5c7, #5ba5c7 50%, transparent 50%)!important;
+    border-color: #d2d2d2!important;
+    background: #d2d2d2 linear-gradient(0deg, #d2d2d2, #d2d2d2 50%, transparent 50%)!important;
 }
 
 .main .scroll {
@@ -10,18 +13,17 @@ ion-header-bar {
 }
 
 .scroll {
-    height: 99.7%;
-    padding: 10px;
+    height: 98%!important;
+    padding-left: 5px;
 }
 
 ion-pane {
-    background-color: rgba(173, 216, 230, 0.5)!important;
+    background-color: transparent!important;
 }
 
 canvas {
     width: 100%;
     height: 100%;
-    background: white;
 }
 
 .buttons-bar {
@@ -39,14 +41,8 @@ canvas {
     height: 54px;
     float: left;
     border-radius: 50%;
-    margin: 7px;
+    margin: 8px;
     border: 1px solid lightgray;
-}
-
-.ion-android-color-palette {
-    position: absolute;
-    left: 50%;
-    margin-left: -23px;
 }
 
 .color-popover {
@@ -112,7 +108,7 @@ canvas {
 }
 
 .sample-pencil-container {
-    width: 320px;
+    width: 330px;
     height: 100px;
     border: 2px inset;
     margin: 10px;
@@ -142,4 +138,41 @@ canvas {
     font-weight: bold;
     color: #8a8a8a;
     margin-bottom: 15px;
+}
+
+.divider {
+    font-size: 21px;
+    position: relative;
+    top: 6px;
+    color: rgba(165, 165, 165, 0.3);
+}
+
+.color-sample-circle {
+    position: absolute;
+    top: 7px;
+    left: 50%;
+    margin-left: -23px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 5px solid black;
+}
+.bar-positive .button, .bar-positive .button:hover, .bar.bar-positive .title {
+    color: dimgrey;
+}
+
+@media only screen and (max-height: 700px) {
+    .color-popover {
+        height: 300px!important;
+    }
+    .pencil-popover {
+        height: 300px;
+    }
+    .sample-pencil-container {
+        width: 192px;
+        height: 70px;
+    }
+    .pencil-popover .row p {
+        font-size: 14px;
+    }
 }

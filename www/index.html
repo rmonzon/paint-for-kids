@@ -5,6 +5,7 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title>Paint for Kids</title>
 
+    <link href="https://fonts.googleapis.com/css?family=Nunito%3A700" rel="stylesheet">
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 
@@ -25,18 +26,26 @@
         <ion-pane>
             <ion-header-bar class="bar-positive">
                 <h1 class="title">Paint for Kids</h1>
-                <button class="button button-icon icon ion-android-color-palette" ng-style="{&apos;color&apos;: color}" ng-click="selectColor($event)"></button>
+                <div class="color-sample-circle" ng-style="eraseMode ? {} : {'border-color': color}"></div>
                 <div class="buttons-bar">
+                    <button class="button button-icon icon ion-android-color-palette" ng-click="selectColor($event)"></button>
+                    <span class="divider">|</span>
                     <button class="button button-icon icon ion-paintbrush" ng-click="openPencilDialog($event)"></button>
-                    <button class="button button-icon icon ion-images" ng-click="selectImage($event)"></button>
-                    <button class="button button-icon icon ion-camera"></button>
+                    <span class="divider">|</span>
                     <button class="button button-icon icon ion-close-round" ng-click="setEraseMode()" ng-disabled="eraseMode"></button>
+                    <span class="divider">|</span>
                     <button class="button button-icon icon ion-trash-b" ng-click="clearCanvas()"></button>
+                    <span class="divider">|</span>
+                    <button class="button button-icon icon ion-image" ng-click="showSavePaintingConfirm()"></button>
+
+                    <!--<button class="button button-icon icon ion-images" ng-click="selectImage($event)"></button>-->
+                    <!--<button class="button button-icon icon ion-camera"></button>-->
                 </div>
             </ion-header-bar>
             <ion-content class="main">
                 <img id="image-bw" style="display: none;">
                 <canvas id="myCanvas"></canvas>
+                <img id="canvasImg" src="" style="display: none">
             </ion-content>
         </ion-pane>
     </body>

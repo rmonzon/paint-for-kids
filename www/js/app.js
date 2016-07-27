@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 angular.module('starter', ['ionic'])
 
-.run(function($ionicPlatform, $rootScope, $ionicGesture, $ionicPopover, $timeout) {
+.run(function($ionicPlatform, $rootScope, $ionicGesture, $ionicPopover, $ionicPopup) {
     $ionicPlatform.ready(function () {
         if (window.cordova && window.cordova.plugins.Keyboard) {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -61,7 +61,8 @@ angular.module('starter', ['ionic'])
 
         function redraw() {
             context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
-            $rootScope.redrawImage();
+            paintBackground();
+            //$rootScope.redrawImage();
 
             context.lineJoin = "round";
             for (var i = 0; i < $rootScope.clickInfo.length; i++) {
@@ -95,10 +96,19 @@ angular.module('starter', ['ionic'])
         };
 
         $rootScope.clearCanvas = function () {
-            context.clearRect(0, 0, context.canvas.width, context.canvas.height);
-            $rootScope.clickInfo = [];
-            colorsPainted = [];
-            $rootScope.eraseMode = false;
+            var confirmPopup = $ionicPopup.confirm({
+                title: 'Clear Painting?',
+                template: 'Are you sure you want to clear your painting?'
+            });
+
+            confirmPopup.then(function(res) {
+                if(res) {
+                    context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+                    $rootScope.clickInfo = [];
+                    colorsPainted = [];
+                    $rootScope.eraseMode = false;
+                }
+            });
         };
 
         $rootScope.openPencilDialog = function (e) {
@@ -150,6 +160,15 @@ angular.module('starter', ['ionic'])
             $rootScope.popoverImages.show(e);
         };
 
+        function savePaint() {
+            // save canvas image as data url (png format by default)
+            var dataURL = document.getElementById('myCanvas').toDataURL();
+
+            var img = document.getElementById('canvasImg');
+            img.src = dataURL.replace('image/png', 'image/octet-stream');
+            window.location.href = img.src;
+        }
+
         $ionicPopover.fromTemplateUrl('views/images_popover.html', {
             scope: $rootScope
         }).then(function(popover) {
@@ -168,10 +187,34 @@ angular.module('starter', ['ionic'])
             $rootScope.popoverC = popover;
         });
 
+        $rootScope.showSavePaintingConfirm = function() {
+            var confirmPopup = $ionicPopup.confirm({
+                title: 'Save Painting?',
+                template: 'Your painting will be saved as an image in your device.'
+            });
+
+            confirmPopup.then(function(res) {
+                if(res) {
+                    savePaint();
+                }
+            });
+        };
+
+        function paintBackground() {
+            context.beginPath();
+            context.rect(0, 0, elem.width, elem.height);
+            context.fillStyle = 'white';
+            context.fill();
+            //context.lineWidth = 7;
+            //context.strokeStyle = 'black';
+            //context.stroke();
+        }
+
         (function () {
-            document.body.classList.remove('platform-ios');
-            document.body.classList.remove('platform-android');
-            document.body.classList.add('platform-ios');
+            // document.body.classList.remove('platform-ios');
+            // document.body.classList.remove('platform-android');
+            // document.body.classList.add('platform-ios');
+            paintBackground();
         })();
     });
 });
